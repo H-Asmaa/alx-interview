@@ -21,7 +21,7 @@ The UTF-8 represents each character in the Unicode character using a variable nu
 Here is a representation taken from a video on YouTube by **Computerphile**.<br>
 Link : [Characters, Symbols and the Unicode Miracle - Computerphile](https://www.youtube.com/watch?v=MijmeoH9LT4)
 
-![How does UTF-8 work?](/0x04-utf8_validation/Pictues/INTERVIEW_diagram_UTF-8.png)
+![How does UTF-8 work?](/Pictues/INTERVIEW_diagram_UTF-8.png)
 ### SOLVING THE TASK
 
 We will be making a function that takes input data in the form of a list of integers, and returns True in case data is a valid UTF-8 encoding and False otherwise.
