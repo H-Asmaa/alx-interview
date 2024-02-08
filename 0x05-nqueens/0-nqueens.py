@@ -5,9 +5,10 @@
 import sys
 
 
-if len(sys.argv) != 2:
+if len(sys.argv) > 2 or len(sys.argv) < 2:
     print("Usage: nqueens N")
     exit(1)
+
 
 if not sys.argv[1].isdigit():
     print("N must be a number")
