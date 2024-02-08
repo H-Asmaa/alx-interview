@@ -4,6 +4,9 @@
 """
 import sys
 
+if len(sys.argv) != 2:
+    print("Usage: nqueens N")
+    exit(1)
 n = int(sys.argv[1])
 
 
