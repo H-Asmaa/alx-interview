@@ -30,16 +30,6 @@ class nQueens:
         self.QueensPlacement = []
         self.board = [["."] * n for _ in range(n)]
 
-    def checkInput(self, n):
-        """A method that checks the validity of the input"""
-        if not isinstance(n, int):
-            print("N must be a number")
-            exit(1)
-        if n < 4:
-            print("N must be at least 4")
-            exit(1)
-        self.backtrack(0)
-
     def backtrack(self, row):
         """A method that performs the backtracking algorithm"""
         if row == n:
