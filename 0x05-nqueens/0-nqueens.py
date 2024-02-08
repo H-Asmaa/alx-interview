@@ -20,23 +20,25 @@ if n < 4:
 
 
 class nQueens:
-    """This is a nQueen class. Why do a class, IDK."""
+    """This is an nQueens class."""
 
-    def __init__(self) -> None:
+    def __init__(self, n):
+        self.n = n
         self.colSet = set()
         self.posDig = set()
         self.negDig = set()
         self.results = []
         self.QueensPlacement = []
         self.board = [["."] * n for _ in range(n)]
+        self.backtrack(0)
 
     def backtrack(self, row):
         """A method that performs the backtracking algorithm"""
-        if row == n:
+        if row == self.n:
             boardList = ["".join(row) for row in self.board]
             self.results.append(boardList)
             return
-        for column in range(n):
+        for column in range(self.n):
             if (
                 column in self.colSet
                 or (row + column) in self.posDig
@@ -54,10 +56,10 @@ class nQueens:
             self.negDig.remove(row - column)
             self.board[row][column] = "."
 
-    def displayResult(self, input):
+    def displayResult(self):
         """A method that displays the results in as indexes."""
         self.QueensPlacement = []
-        for result in input:
+        for result in self.results:
             queens = []
             for rowIndex, row in enumerate(result):
                 for colIndex, elem in enumerate(row):
@@ -68,6 +70,5 @@ class nQueens:
             print(queens)
 
 
-chess = nQueens()
-chess.backtrack(0)
-chess.displayResult(chess.results)
+chess = nQueens(n)
+chess.displayResult()
