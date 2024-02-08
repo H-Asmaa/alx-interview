@@ -24,6 +24,7 @@ class nQueens:
     """This is an nQueens class."""
 
     def __init__(self, n):
+        """The init method"""
         self.n = n
         self.colSet = set()
         self.posDig = set()
