@@ -26,7 +26,7 @@ class nQueens:
     def __init__(self, n):
         """The init method"""
         self.n = n
-        self.colSet = set()
+        self.col = set()
         self.posDig = set()
         self.negDig = set()
         self.results = []
@@ -41,19 +41,17 @@ class nQueens:
             self.results.append(boardList)
             return
         for column in range(self.n):
-            if (
-                column in self.colSet
-                or (row + column) in self.posDig
-                or (row - column) in self.negDig
-            ):
+            a = row + column
+            b = row - column
+            if column in self.col or a in self.posDig or b in self.negDig:
                 continue
 
             self.board[row][column] = "Q"
-            self.colSet.add(column)
+            self.col.add(column)
             self.posDig.add(row + column)
             self.negDig.add(row - column)
             self.backtrack(row + 1)
-            self.colSet.remove(column)
+            self.col.remove(column)
             self.posDig.remove(row + column)
             self.negDig.remove(row - column)
             self.board[row][column] = "."
