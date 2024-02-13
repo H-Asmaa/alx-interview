@@ -21,7 +21,7 @@ request.get(url, async (error, response, body) => {
             if (!error && response.statusCode === 200) {
               resolve(JSON.parse(body).name);
             } else {
-              reject('Character information request failed!');
+              reject(new Error('Character information request failed!'));
             }
           });
         });
