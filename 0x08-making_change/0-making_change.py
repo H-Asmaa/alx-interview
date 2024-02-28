@@ -23,5 +23,3 @@ def makeChange(coins, total):
     if total:
         return -1
     return count
-
-print(makeChange([65, 67, 8], 0))
