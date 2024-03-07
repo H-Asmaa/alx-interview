@@ -6,7 +6,7 @@
 
 def island_perimeter(grid):
     """A function that calculates the island perimeter."""
-    if isinstance(grid, list) and all(isinstance(sublist, list) for sublist in grid):
+    if isinstance(grid, list) and all(isinstance(sub, list) for sub in grid):
         if isinstance(grid, list):
             perimeter = 0
             for row in range(len(grid)):
