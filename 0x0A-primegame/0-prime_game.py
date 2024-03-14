@@ -10,7 +10,7 @@ def isPrime(n):
         return True
     if n < 2:
         return False
-    for i in range(3, int(n**0.5) + 1, 2):
+    for i in range(2, int(n**0.5) + 1):
         if n % i == 0:
             return False
     return True
@@ -18,16 +18,15 @@ def isPrime(n):
 
 def isWinner(x, nums):
     """A function that determines the winner of the prime games."""
-    tmp_list = []
     ben_score = maria_score = 0
     for num in nums[:x]:
         turn = 0
+        tmp_list = []
         for i in range(1, num + 1):
             tmp_list.append(i)
-        for pick in tmp_list[:]:
+        for pick in tmp_list:
             if not isPrime(pick):
                 continue
-            tmp_list.remove(pick)
             turn = 1 - turn
         if turn:
             maria_score += 1
