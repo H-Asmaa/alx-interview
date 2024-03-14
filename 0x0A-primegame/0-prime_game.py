@@ -4,16 +4,16 @@
 """
 
 
-def isPrime(n):
-    """A function that determins if a number is prime."""
-    if n == 2:
-        return True
-    if n < 2:
-        return False
-    for i in range(2, int(n**0.5) + 1):
-        if n % i == 0:
-            return False
-    return True
+def listPrime(n):
+    """A function that generates a list of primes."""
+    numbers = []
+    sieve = [True] * (n + 1)
+    for p in range(2, n + 1):
+        if sieve[p]:
+            numbers.append(p)
+            for i in range(p, n + 1, p):
+                sieve[i] = False
+    return numbers
 
 
 def isWinner(x, nums):
@@ -21,12 +21,7 @@ def isWinner(x, nums):
     ben_score = maria_score = 0
     for num in nums[:x]:
         turn = 0
-        tmp_list = []
-        for i in range(1, num + 1):
-            tmp_list.append(i)
-        for pick in tmp_list:
-            if not isPrime(pick):
-                continue
+        for pick in listPrime(num):
             turn = 1 - turn
         if turn:
             maria_score += 1
